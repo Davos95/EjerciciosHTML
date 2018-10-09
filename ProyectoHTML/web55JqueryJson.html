@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#boton1").click(function () {
+                $.getJSON("json/tareas.json", function (data) {
+                    $.each(data, function (key, value) {
+                        var li = $('<li>', {
+                            text: 'key:' + key + ' value:' + value
+                        });
+                        $("#tareas").append(li);
+                    });
+                });
+            });
+
+            $("#botonAjax").click(function () {
+                $.ajax({
+                    method: 'GET',
+                    url: 'json/tareas.json',
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+                            var li = $('<li>', {
+                                text: 'key:' + key + ' value:' + value
+                            });
+                            $("#tareas").append(li);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="boton1">click!</button>
+        <button type="button" id="botonAjax">Boton Ajax</button>
+    </form>
+    <ul id="tareas">
+
+    </ul>
+</body>
+</html>

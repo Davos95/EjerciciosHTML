@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            this.document.getElementById("validar").addEventListener("click", ordenar);
+        }
+        function ordenar() {
+            var n1 = parseInt(document.getElementById("caja1").value);
+            var n2 = parseInt(document.getElementById("caja2").value);
+            var n3 = parseInt(document.getElementById("caja3").value);
+            var resultado = document.getElementById("resultado");
+            var cadena = "";
+
+
+            /* ESTO SERIA CON VARIOS IF
+            if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3)) {
+                if (n1 >= n2 && n1 >= n3) {
+                    cadena = "El mayor es:" + n1;
+                    if (n2 > n3) {
+                        cadena += " el mediano es:" + n2 + " y el pequeño es: " + n3;
+                    } else {
+                        cadena += " el mediano es:" + n3 + " y el pequeño es: " + n2;
+                    }
+                } else if (n2 >= n1 && n2 >= n3) {
+                    cadena = "El mayor es:" + n2;
+                    if (n1 > n3) {
+                        cadena += " el mediano es:" + n1 + " y el pequeño es: " + n3;
+                    } else {
+                        cadena += " el mediano es:" + n3 + " y el pequeño es: " + n1;
+                    }
+                } else {
+                    cadena = "El mayor es:" + n3;
+                    if (n1 > n2) {
+                        cadena += " el mediano es:" + n1 + " y el pequeño es: " + n2;
+                    } else {
+                        cadena += " el mediano es:" + n2 + " y el pequeño es: " + n1;
+                    }
+                }
+                resultado.innerText = cadena; 
+            } else {
+                return false;
+            }
+            */
+
+            if (!isNaN(n1) && !isNaN(n2) && !isNaN(n3)) {
+                var arrayNumeros = [n1, n2, n3];
+                arrayNumeros.sort(function (a, b) { return a - b}).reverse();
+                resultado.innerText = "El mayor es: "+ arrayNumeros[0] + "\n el mediano es: "+ arrayNumeros[1] + "\n el pequeño es: "+ arrayNumeros[2]; 
+            } else {
+                resultado.innerText = "Inserte de forma correcta los varoles";
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Tamaño de los numeros.</h2>
+        </nav>
+    </header>
+    <fieldset>
+        <legend>Formulario</legend>
+        <form>
+            <label>Numero 1:</label>
+            <input type="number" placeholder="primer numero" id="caja1" />
+            <br />
+            <label>Numero 2:</label>
+            <input type="number" placeholder="segundo numero" id="caja2" />
+            <br />
+            <label>Numero 3:</label>
+            <input type="number" placeholder="tercer numero" id="caja3" />
+            <br />
+            <button type="button" class="waves-effect waves-dark btn blue " id="validar">Validar</button>
+        </form>
+        <h3 id="resultado"></h3>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getJugadores();
+
+            function getJugadores() {
+                $.ajax({
+                    method: 'GET',
+                    url: 'json/jugadores.json',
+                    success: function (response) {
+                        $.each(response.jugadores, function (key, value) {
+                            var option = $("<option>", {
+                                value: key,
+                                text: value.nombre
+                            });
+                            $("#jugadores").append(option);
+                        });
+                        $("#jugadores").change(function () {
+                            var titulo, camiseta, posicion, edad;
+                            $("#descripcion").html("");
+                            var index = $("#jugadores").val();
+                            titulo = $("<h2>", { text: response.jugadores[index].nombre });
+                            camiseta = $("<p>", { text: "Camiseta: " + response.jugadores[index].numero });
+                            posicion = $("<p>", { text: "Posición: " + response.jugadores[index].posicion });
+                            edad = $("<p>", { text: "Edad: " + response.jugadores[index].edad });
+                            $("#descripcion").append([titulo, camiseta, posicion, edad]);
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <select id="jugadores">
+
+        </select>
+    </form>
+    <hr />
+    <div id="descripcion"></div>
+</body>
+</html>

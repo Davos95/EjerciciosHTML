@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#guardar").click(function () {
+                var marca = $("#marca").val();
+                var modelo = $("#modelo").val();
+                var tipo = $("input[name='tipo']:checked").val();
+                if (tipo === "0") {
+                    localStorage.setItem("marca", marca);
+                    localStorage.setItem("modelo", modelo);
+                    $("#estado").text("Guardado localmente");
+                } else {
+                    sessionStorage.setItem("marca", marca);
+                    sessionStorage.setItem("modelo", modelo);
+                    $("#estado").text("Guardado en la sesion");
+                }
+            });
+            $("#leer").click(function () {
+                var tipo = $("input[name='tipo']:checked").val();
+                if (tipo == 0) {
+                    var marca = localStorage.getItem("marca");
+                    var modelo = localStorage.getItem("modelo");
+                    $("#estado").text("Marca: " + marca + "\n Modelo: " + modelo);
+                } else {
+                    var marca = sessionStorage.getItem("marca");
+                    var modelo = sessionStorage.getItem("modelo");
+                    $("#estado").text("Marca: " + marca + "\n Modelo: " + modelo);
+                }
+            });
+            $("#borrar").click(function () {
+                var tipo = $("input[name='tipo']:checked").val();
+                if (tipo == 0) {
+                    localStorage.clear();
+                } else {
+                    localStorage.clear();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <label>Marca:</label>
+        <input type="text" id="marca" />
+        <br />
+        <label>Modelo:</label>
+        <input type="text" id="modelo" />
+        <br />
+        <ul>
+            <li><input type="radio" name="tipo" value="0" />Local</li>
+            <li><input type="radio" name="tipo" value="1" />Sesion</li>
+        </ul>
+    </form>
+    <button type="button" id="guardar">Guardar datos</button>
+    <button type="button" id="leer">Leer datos</button>
+    <button type="button" id="borrar">Borrar datos</button>
+    <h3 id="estado"></h3>
+</body>
+</html>

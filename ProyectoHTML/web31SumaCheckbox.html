@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.getElementById("iniciar").addEventListener("click", iniciar);
+        }
+
+        function iniciar() {
+            var formulario = document.getElementById("formulario");
+            var resultado = document.getElementById("resultado");
+            formulario.innerHTML = "";
+            resultado.innerText = 0;
+            for (var i = 0; i < numAleatorio(); i++) {
+                var checkbox = document.createElement("input");
+                var label = document.createElement("label");
+                var numero = numAleatorio();
+
+                checkbox.type = "checkbox";
+                checkbox.value = numero;
+                checkbox.addEventListener("click", suma);
+
+                label.innerText = numero;
+                formulario.appendChild(checkbox);
+                formulario.appendChild(label);
+            }
+        }
+        function suma() {
+            var resultado = document.getElementById("resultado");
+            if (this.checked) {
+                resultado.innerText = parseInt(resultado.innerText) + parseInt(this.value);
+            } else {
+                resultado.innerText = parseInt(resultado.innerText) - parseInt(this.value);
+            }
+        }
+        
+        function numAleatorio() {
+            var num_aleatorio;
+            num_aleatorio = Math.floor(Math.random() * ((50 + 1) - 10)) + 10;
+            return num_aleatorio;
+        }
+        
+    </script>
+</head>
+<body>
+    <button type="button" id="iniciar">Iniciar</button>
+    <form id="formulario">
+        
+    </form>
+    <hr />
+    <h1 id="resultado">0</h1>
+</body>
+</html>

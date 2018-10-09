@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementsByTagName("button")[0].addEventListener("click", cambiarColor);
+        }
+        function cambiarColor() {
+            var resultado = document.getElementById("resultado");
+            var radios = document.forms[0].colores;
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    resultado.innerText = radios[i].value;
+                    i = radios.length;
+                }
+            }
+        }
+        
+        
+    </script>
+</head>
+<body>
+    <form>
+        <ul>
+            <li>
+                <input type="radio" name="colores" value="red" />Rojo
+            </li>
+            <li>
+                <input type="radio" name="colores" value="blue" />Azul
+            </li>
+            <li>
+                <input type="radio" name="colores" value="yellow" />Amarillo
+            </li>
+        </ul>
+        <button type="button">Click!</button>
+    </form>
+    <h1 id="resultado"></h1>
+
+</body>
+</html>

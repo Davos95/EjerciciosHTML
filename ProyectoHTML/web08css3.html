@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /*se usa <<$>> para todos los que terminen*/
+        a[href$="es"] {
+            color:red;
+        }
+
+        /*se usa <<*>> para todos los que contengan (ES SENSITIVO) */
+        a[href*="google"] {
+            background-color:yellow
+        }
+
+        /* se usa <<^>> para todos los que empiecen */
+        a[href^="www.microsoft"] {
+            font-style:italic;
+        }
+
+        /* Aplica el estilo inmediatamente despues del div */
+        div + p {
+            background-color: yellow;
+        }
+
+        /* Aplica el estilo a todos los div que tengan antes de un hr */
+        hr ~ div  {
+            background-color:blue;
+        }
+
+        /* Aplica a todas las etiquetas p dentro de un div incluso si no corta el estilo */
+        div > p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="www.google.es">GOOGLE ESPAÑA</a>
+            </li>
+            <li>
+                <a href="www.microsoft.es">MICROSOFT ESPAÑA</a>
+            </li>
+            <li>
+                <a href="www.google.com">GOOGLE INTERNACIONAL</a>
+            </li>
+        </ul>
+    </nav>
+    <hr />
+    <div>
+        <p>Parrafo dentro de una capa</p>                           
+    </div>
+    <p>parrafo despues de capa</p>
+    
+    <p>segundo parrafo despues de capa</p>
+    <div>
+        <p>dentro de div</p>
+    </div>
+</body>
+</html>

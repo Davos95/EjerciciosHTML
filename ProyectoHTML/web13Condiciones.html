@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function evaluarNumero() {
+            var valor = parseInt(document.getElementById("cajaNumero").value);
+            var resultado = document.getElementById("resultado");
+            if (valor == 0) {
+                resultado.innerText = "El valor es 0";
+            } else if (valor < 0) {
+                resultado.innerText = "El valor es menor que 0";
+            } else if (valor > 0) {
+                resultado.innerText = "El valor es mayor que 0";
+            } else {
+                resultado.innerText = "Inserte un valor correcto";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Condiciones Número positivo</h1>
+    </header>
+    <form>
+        <label>Introduzca un número: </label>
+        <input type="number" placeholder="Numero" id="cajaNumero" />
+        <button type="button" onclick="evaluarNumero()" > Mostrar Resultado</button>
+    </form>
+    <h1 id="resultado" > </h1>
+</body>
+</html>

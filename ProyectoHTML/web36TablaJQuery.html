@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#rangoTabla").change(function () {
+                $("#numeroRango").text($("#rangoTabla").val());
+            });
+            $("#generarTabla").click(function () {
+                var resultado = $("#resultados");
+                resultado.html("");
+                var numero = $("#numeroMultiplicar").val();
+                var longitudTabla = $("#rangoTabla").val();
+
+                if (!isNaN(numero) && !isNaN(longitudTabla)) {
+                    var tabla = $("<table></table>");
+
+                    var contador = 0;
+                    while (contador <= longitudTabla) {
+                        var fila = $("<tr></tr>");
+                        var column1 = $("<td></td>").text(numero + " x " + contador);
+                        var column2 = $("<td></td>").text(numero * contador);
+                        fila.append(column1);
+                        fila.append(column2);
+
+                        tabla.append(fila);
+                        contador++;
+                    }
+
+                    resultado.append(tabla);
+                }
+            });
+        });
+    </script>
+    <style>
+        #resultados > table tr:nth-child(2n+1) {
+            background-color: #c8e6c9;
+        }
+        #resultados > table tr:nth-child(2n) {
+            background-color: #ef9a9a;
+        }
+        #resultados > table td {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legen>Tabla de multiplicaciones</legen>
+        <form>
+            <label>Longitud de multiplicación</label>
+            <input type="range" value="10" min="1" max="50" id="rangoTabla" />
+            <span id="numeroRango">10</span>
+            <br />
+            <label>Multiplicar por:</label>
+            <input type="number"  value="5" id="numeroMultiplicar" />
+            <br />
+            <button type="button" id="generarTabla">Generar Tabla</button>
+        </form>
+    </fieldset>
+    <div id="resultados"></div>
+</body>
+</html>

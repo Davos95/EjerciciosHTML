@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("boton1").addEventListener("click", function () {
+                cargarClientes();
+            });
+        }
+        function cargarClientes() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.status == 200 && xhttp.readyState == 4) {
+                    leerDatos(xhttp);
+                }
+            }
+            xhttp.open("GET", "json/clientessimples.json", true);
+            xhttp.send();
+        }
+        function leerDatos(xhttp) {
+            var json = JSON.parse(xhttp.response);
+            var ul = document.getElementById("listaClientes");
+            for (var i = 0; i < json.clientes.length; i++) {
+                var li = document.createElement("li");
+                li.innerText = json.clientes[i].nombre;
+                ul.appendChild(li);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="boton1">Leer clientes</button>
+    </form>
+    <ul id="listaClientes"></ul>
+</body>
+</html>

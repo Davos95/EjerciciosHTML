@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#mostrar").click(function () {
+            $("#deportes option").each(function () {
+                var option = $(this);
+                if (option.prop("selected")) {
+                    var value = option.val();
+                    $("#resultado").text(value);
+                }
+            });
+        });
+        $("#botonRapido").click(function () {
+            var option = $("#deportes option:selected");
+            $("#resultado").text(option.val());
+        });
+        
+    });
+</script>
+<body>
+<form>
+    <select id="deportes">
+        <option value="futbol">futbol</option>
+        <option value="baloncesto">baloncesto</option>
+        <option value="tenis">tenis</option>
+        <option value="natacion">natacion</option>
+        <option value="karate">karate</option>
+    </select>
+    <button type="button" id="mostrar">mostrar seleccion</button>
+    <button type="button" id="botonRapido">Boton Rapido</button>
+</form>
+    <h1 id="resultado"></h1>
+</body>
+</html>

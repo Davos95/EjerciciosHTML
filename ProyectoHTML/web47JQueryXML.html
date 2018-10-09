@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnXML").click(function () {
+                $.get("xml/empleados.xml", function (docxml) {
+                    //var tagsApellido = $(docxml).find("APELLIDO");
+                    //var apellido = tagsApellido.first();
+                    //$("#datos").text(apellido.text());
+                    var html = "<ul>";
+                    $(docxml).find("APELLIDO").each(function () {
+                        html += "<li>"+$(this).text()+"</li>";
+                    });
+                    html += "</ul>";
+                    $("#datos").html(html);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button type="button" id="btnXML">Leer empleados con JQuery</button>
+    <div id="datos"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function cambiarTitulo() {
+            var titulo = document.getElementById("titulo1");
+            //titulo.innerText = "Texto plano JS";
+            titulo.innerHTML = "<img src='beagle.jpg' />";
+        }
+        function cambiarCaja() {
+            var caja = document.getElementById("cajatexto");
+            //Lo que escribamos en la caja se cambiara en el titulo
+            var titulo = document.getElementById("titulo1");
+            titulo.innerText = caja.value;
+        }
+    </script>
+</head>
+<body>
+    <h1 id="titulo1">Soy el titulo de la pagina</h1>
+    <button type="button" onclick="cambiarTitulo()"> Cambiar titulo h1   </button>
+    <form>
+        <fieldset>
+            <legend>Prueba objetos JS</legend>
+            <label>Introduzca un texto: </label>
+            <input type="text" id="cajatexto" placeholder="Introduce texto..." />
+        </fieldset>
+        <button type="button" onclick="cambiarCaja()">
+            Cambiar contenido...
+        </button>
+    </form>
+    <script>
+        document.getElementById("cajatexto").addEventListener("keyup", function () {
+            document.getElementById("titulo1").innerText = document.getElementById("cajatexto").value;
+        });
+    </script>
+</body>
+</html>

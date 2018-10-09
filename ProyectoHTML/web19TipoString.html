@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.getElementById("validar").addEventListener("click",evaluarString);
+        }
+        function evaluarString() {
+            var texto = "Visual Studio net";
+            var resultado = document.getElementById("resultado");
+            var lista = "<ul>";
+            lista += "<li>" + texto.length + "</li>";
+            lista += "<li>" + texto.toUpperCase() + "</li>";
+            lista += "<li>" + texto.toLowerCase() + "</li>";
+            lista += "<li>" + texto.indexOf("S",2) + "</li>";
+            lista += "<li>" + texto.lastIndexOf("S") + "</li>";
+            lista += "<li>" + texto.substr(2,3) + "</li>";
+            lista += "<li>" + texto.substr(7) + "</li>";
+            lista += "<li>" + texto.charAt(8) + "</li>";
+            lista += "<li>" + texto.strike() + "</li>";
+            lista += "<li>" + texto.replace("S","@@") + "</li>";
+            lista += "</ul>";
+            resultado.innerHTML = lista;
+        }
+    </script>
+</head>
+<body>
+    
+    <fieldset>
+        <legend></legend>
+        <form>
+            <button type="button" id="validar">validar</button>
+            <h3 id="resultado"></h3>
+        </form>
+    </fieldset>
+    
+</body>
+</html>

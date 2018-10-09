@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("boton1").addEventListener("click", mostrarRespuesta );
+        }
+        function mostrarRespuesta() {
+            var select = document.getElementById("desplegable");
+            var resultado = document.getElementById("resultado");
+            var datos = "";
+            for (var i = 0; i < select.options.length; i++) {
+                var option = select.options[i];
+                if (option.selected) {
+                    datos += "<li> <span style='color:"+option.value+"'>"+option.value + "</span></li>";
+                }
+            }
+            resultado.innerHTML = "<ul>" + datos + "</ul>";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Select con seleccion multiple</h1>
+    </header>
+    <form>
+        <select id="desplegable" multiple size="5">
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="yellow">Amarillo</option>
+            <option value="brown">Marron</option>
+            <option value="purple">morado</option>
+            <option value="pink">rosa</option>
+            <option value="green">verde</option>
+        </select>
+        <button type="button" id="boton1">Mostrar Respuesta</button>
+    </form>
+    <h1 id="resultado"></h1>
+</body>
+</html>

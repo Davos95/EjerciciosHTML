@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#botonAjax").click(function () {
+                $.ajax({
+                    method: "GET",
+                    url: 'json/clientessimples.json',
+                    success: function (data) {
+                        console.log(data);
+                        $.each(data.clientes, function (indice, cliente) {
+                            var li = $("<li>", {
+                                text: "Posicion:" + indice + " valor:" + cliente
+                            });
+                            $("#listaClientes").append(li); 
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="botonAjax">Cargar Lista de clientes</button>
+    </form>
+    <ul id="listaClientes"></ul>
+</body>
+</html>

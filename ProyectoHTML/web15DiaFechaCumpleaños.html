@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Content/materialize-v0.97.5/js/materialize.js"></script>
+    <link href="Content/materialize-v0.97.5/css/materialize.css" rel="stylesheet" />
+
+    <script>
+        window.onload = function () {
+            this.document.getElementById("validar").addEventListener("click", calcularDia);
+        }
+        function calcularDia() {
+            var dia = parseInt(document.getElementById("dia").value);
+            var mes = parseInt(document.getElementById("mes").value);
+            var anio = parseInt(document.getElementById("anio").value);
+            var resultado = document.getElementById("resultado");
+
+            var operacionMes = parseInt( ((mes + 1) * 3) / 5);
+            var anio4 = parseInt( anio / 4);
+            
+            var anio100 = parseInt(anio / 100);
+            var anio400 = parseInt(anio / 400);
+
+            var operacion = parseInt(dia + (mes * 2) + anio + operacionMes + anio4 - anio100 + anio400 + 2);
+            var operacion2 = parseInt(operacion / 7);
+            var valor = operacion - (operacion2 * 7);
+            console.log(parseInt(dia + (mes * 2) + anio + (((mes + 1) * 3) / 5) + (anio / 4) - (anio / 100) + (anio / 400) + 2));
+            switch (valor) {
+                case 0: resultado.innerText = "Sábado"; break;
+                case 1: resultado.innerText = "Domingo"; break;
+                case 2: resultado.innerText = "Lunes"; break;
+                case 3: resultado.innerText = "Martes"; break;
+                case 4: resultado.innerText = "Miercoles"; break;
+                case 5: resultado.innerText = "Jueves"; break;
+                case 6: resultado.innerText = "Viernes"; break;
+                default: resultado.innerText = "Error";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="row">
+        <nav class="blue">
+            <h3>Dia Nacimiento</h3>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <form>
+                <label>Dia: </label>
+                <input type="number" placeholder="Dia" id="dia" />
+                <label>Mes:</label>
+                <input type="number" placeholder="mes" id="mes" />
+                <label>Año: </label>
+                <input type="number" placeholder="año" id="anio" />
+                <br />
+                <button type="button" class="waves-effect waves-dark btn blue" id="validar">Validar</button>
+            </form>
+        </div>
+        
+    </div>
+    
+    <h4 id="resultado"></h4>
+</body>
+</html>

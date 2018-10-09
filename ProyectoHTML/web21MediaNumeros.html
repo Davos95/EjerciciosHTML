@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("validar").addEventListener("click",numerosSM);
+        }
+        function numerosSM() {
+            var numeros = document.getElementById("cajaTexto").value;
+            var resultado = document.getElementById("resultado");
+            if (!isNaN(numeros)) {
+                var sumaTotal = 0;
+                var media = 0;
+                for (var i = 0; i < numeros.length; i++) {
+                    sumaTotal += parseInt(numeros.charAt(i));
+                }
+                media = sumaTotal / numeros.length;
+                resultado.innerHTML = "<ul><li>Suma Total: "+sumaTotal + "</li><li>Media: "+media+"</li></ul>";
+            } else {
+                resultado.innerText = "Introduce correctamente un numero";
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Numeros</legend>
+        <form>
+            <label>Escribe un numero:</label>
+            <input type="text" id="cajaTexto" />
+            <br />
+            <button type="button" id="validar">Validar</button>
+        </form>
+    </fieldset>
+    <h2 id="resultado"></h2>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn")
+                .click(function () {
+                    $("#sports option").each(function () {
+
+                        //CON "IS", DEBES AÑADIR EL CARACTER ": DELANTE DE LA PROPIEDAD
+                        //if ($(this).is(":selected")) {
+                        //    var sport = $(this).val();
+                        //    $("#pnl").text(sport);
+                        //}
+                        //CON "PROP"
+                        if ($(this).prop("selected")) {
+                            var sport = $(this).val();
+                            $("#pnl").text(sport);
+                        }
+                    });
+                });
+            $("#btn2")
+                .click(function () {
+                    $("#pnl").text($("#sports option:selected").val());                    
+                });
+            $("#btn3")
+                .click(function () {
+                    $("#sports option:selected").each(function () {
+                        $("#pnl").text($("#pnl").text() + $(this).val() + " ");    
+                    });
+                });
+        });
+    </script>
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+    <form>
+        <select id="sports" size="4" multiple>
+            <option value="Futbol">Futbol</option>
+            <option value="Baloncesto">Baloncesto</option>
+            <option value="Bádminton">Bádminton</option>
+            <option value="Tenis">Tenis</option>
+        </select>
+        <button type="button" id="btn">Mostrar deporte</button>
+        <button type="button" id="btn2">Mostrar deporte RÁPIDO</button>
+        <button type="button" id="btn3">Mostrar deporte MÚLTIPLE</button>
+        <h1 id="pnl"></h1>
+    </form>
+</body>
+</html>

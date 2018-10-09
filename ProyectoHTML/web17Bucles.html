@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            this.document.getElementById("boton1").addEventListener("click", bucle);
+            function bucle() {
+                var resultado = document.getElementById("resultado");
+                //var count = 0;
+                var cadena = "";
+                /*
+                while (count < 10) {
+                    count++;
+                    cadena += count;
+                    if (count < 10) {
+                        cadena += ", ";
+                    }
+                }*/
+                /*
+                for (var i = 0; i < 100; i+=2) {
+                    cadena += i;
+                    if (i < 98) {
+                        cadena += ", ";
+                    }
+                }
+                */
+                for (var i = 0; i < 100; i++) {
+                    if ((i % 2) == 0) {
+                        resultado.innerText += "\n" + i ;
+                    }
+                }
+                //resultado.innerText = cadena;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="boton1">Click!</button>
+    <h1 id="resultado"></h1>
+</body>
+</html>

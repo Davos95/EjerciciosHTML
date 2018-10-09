@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("botonTexto").addEventListener("click", crearObjetosTexto);
+            document.getElementById("botonCodigo").addEventListener("click", crearObjetosCodigo);
+        }
+        
+        function crearObjetosTexto() {
+            var padre = document.getElementById("padre");
+            var html = "";
+            for (var i = 0; i < 5; i++) {
+                html += "<h1>Texto: " + (i+1) + "</h1>";
+            }
+            padre.innerHTML = html;
+        }
+        function crearObjetosCodigo() {
+            var padre = document.getElementById("padre");
+            for (var i = 0; i < 5; i++) {
+                var hijo = document.createElement("h1");
+                hijo.innerText = "hijo " + i;
+                padre.appendChild(hijo);
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="botonTexto">Crear objetos Texto</button>
+        <button type="button" id="botonCodigo">Crear objetos codigo</button>
+    </form>
+    <div id="padre"></div>
+</body>
+</html>

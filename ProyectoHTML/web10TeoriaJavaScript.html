@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        //CODIGO JAVASCRIPT
+        //window.alert("soy una alerta");
+        //window.confirm("Desea continuar?");
+        function mostrarMensaje() {
+            alert("Mensaje desde la funcion");
+        }
+        //LOS PARAMETROS SE INCLUYEN
+        //EN LA CABECERA DE LA FUNCIONA
+        //ENTRE LOS PARENTESIS SEPARADOS POR COMAS
+        //LOS PARAMETROS SON OPCIONALES
+        function cambiarUrl(pagina) {
+            //alert(pagina);
+            window.location.href = pagina;
+        }
+
+        function matematicas(num1, num2) {
+            //OPERADORES MATEMATICOS
+            // + - / *
+            alert("Resta: " + (num1 - num2) + "\n" + "Division: " + num1 / num2 + "\n" + "Multiplicacion: " + num1 * num2 + "\n" + "Suma: " + (num1 + num2));
+        }
+
+        function crearTabla() {
+            var abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var contador = 0;
+            var tabla = document.createElement("table");
+            for (var i = 0; i < 6; i++) {
+                var trx = document.createElement("tr");
+                for (var j = 0; j < 5; j++) {
+                    var tdx = document.createElement("td");
+                    if (contador < abecedario.length) {
+                        tdx.innerHTML = abecedario[contador];
+                        tdx.style = "padding:5px";
+                        tdx.addEventListener("mouseover", function () {
+                            this.style.backgroundColor = "red";
+                        });
+                        tdx.addEventListener("mouseout", function () {
+                            this.style.backgroundColor = "white";
+                        });
+
+                        contador++;
+                        trx.appendChild(tdx);
+                        
+                    }
+                }
+                tabla.appendChild(trx);
+            }
+            console.log(document.getElementsByTagName("body"));
+            document.body.appendChild(tabla);
+        }
+        
+    </script>
+</head>
+<body>
+    <button type="button" onclick="mostrarMensaje()">Click!</button>
+    <button type="button" onclick="cambiarUrl('http://www.microsoft.com')">Ir a GOOGLE </button>
+    <button type="button" onclick="matematicas(10, 5)">Operaciones</button>
+    <script>
+        crearTabla();
+    </script>
+</body>
+</html>

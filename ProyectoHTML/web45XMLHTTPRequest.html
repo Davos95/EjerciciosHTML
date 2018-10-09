@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function realizarPeticionXML() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.addEventListener("load", leerDatosXML);
+            xhttp.open("GET", "xml/empleados.xml");
+            xhttp.send();
+        }
+
+        function leerDatosXML() {
+            document.getElementById("empleados").innerText = this.response;
+            console.log(this.responseXML);
+        }
+
+    </script>
+</head>
+<body>
+    <button type="button" onclick="realizarPeticionXML()">Leer datos</button>
+    <div id="empleados"></div>
+</body>
+</html>

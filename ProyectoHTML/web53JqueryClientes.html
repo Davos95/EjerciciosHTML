@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            cargarClientes();
+            $("#clientes").change(function () {
+                $.get("xml/ClientesXML.xml", function (data) {
+                    var idCliete = $("#clientes").val();
+                    var filtro = "CLIENTE[IDCLIENTE=" + idCliete + "]";
+                    var cliente = $(data).find(filtro).first();
+                    var web = cliente.find("PAGINAWEB").first().text();
+                    $("#datosCliente").text(web);
+                });
+            });
+        });
+
+        function cargarClientes() {
+            $.get("xml/ClientesXML.xml", function (data) {
+                $(data).find("CLIENTE").each(function () {
+                    var idCliente = $(this).attr("IDCLIENTE");
+                    var nombre = $(this).find("NOMBRE").first().text();
+                    var option = $("<option>", {
+                        text: nombre,
+                        value: idCliente
+                    });
+                    $("#clientes").append(option);
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label>Clientes:</label>
+        <select id="clientes">
+
+        </select>
+    </form>
+    <br />
+    <div id="datosCliente">
+
+    </div>
+</body>
+</html>

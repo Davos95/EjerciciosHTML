@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Pagina de etiquetas</h1>
+            <h4>A modo de repaso</h4>
+        </hgroup>
+        <nav>
+            <b>|</b><a href="http://www.google.es">GOOGLE</a><b>|</b>
+            <a href="http://www.twitter.com">TWITTER</a><b>|</b>
+            <a href="http://www.youtube.com">YOUTUBE</a><b>|</b>
+        </nav>
+    </header>
+    <br />
+    <section>
+        <article>
+            <dt><h3><u>Estructura de HTML5</u></h3></dt>
+            <dd>
+                <p>
+                    La estructura de HTML se compone de elementos como <b>header</b>, <b>section</b>,<b>article</b>, <b>aside</b> y <b>footer</b>.
+                </p>
+            </dd>
+        </article>
+        <article>
+            <h2>Grupos</h2>
+            <hr />
+            <h3>Grupos numerados</h3>
+            <ol>
+                <li>Elemento</li>
+                <li>Elemento</li>
+                <li>Elemento</li>
+            </ol>
+            <h3>Grupos no numerados</h3>
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+                <li>
+                    Elemento 4
+                    <ul>
+                        <li>Sub elemento 1 del elemento 4</li>
+                        <li>Sub elemento 2 del elemento 4</li>
+                    </ul>
+                </li>
+            </ul>
+            <hr />
+        </article>
+        <article>
+            <h2>Imagen</h2>
+            <p>Para insertar una imagen lo hacemos con la etiqueta <b>img</b> con el atributo <b>src</b></p>
+            <figure>
+                <img src="beagle.jpg" />
+                <figcaption>
+                    <p>Esto es un perro de raza <mark>Beagle</mark></p>
+                </figcaption>
+            </figure>
+        </article>
+        <article>
+            <h2>Barra de progresión</h2>
+            <p>La barra de progresión se hace con la etiqueta <mark>progress</mark>, se le tiene que añadir el atributo <mark>max</mark> y de forma opcional el atributo <mark>value</mark></p>
+            Pagina cargada: <progress max="100" value="100"></progress>
+        </article>
+    </section>
+    <section>
+        <h2>Video</h2>
+        <video width="640" height="360" controls preload="auto">
+            <source src="multimedia/video1.mp4" type="video/mp4" />
+        </video>
+        <h2>Audio</h2>
+        <audio controls>
+            <source src="multimedia/audio.mp3" type="audio/mp3" />
+        </audio>
+    </section>
+    <aside>
+        <ul>
+            <li>Elemento lateral con el aside</li>
+        </ul>
+    </aside>
+    <footer>
+        <h2>Pie de pagina con h2.</h2>
+    </footer>
+</body>
+</html>

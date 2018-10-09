@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <hgroup>
+        <h2>Controles de formulario</h2>
+        <h5>Lista con selección múltiple</h5>
+    </hgroup>
+    <form>
+        <select size="7" multiple>
+            <option value="red">Rojo</option>
+            <option value="brown">Marrón</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarillo</option>
+            <option value="orange">Naranja</option>
+        </select>
+        <h5>Control desplegable</h5>
+        <label>Seleccione su sitio favorito</label>
+        <select>
+            <option value="null" disabled selected>Seleccione un elemento</option>
+            <option value="twitter">twitter</option>
+            <option value="facebook">facebook</option>
+            <option value="youtube">youtube</option>
+        </select>
+        <h5>Controles CHECKBOX</h5>
+        <fieldset>
+            <legend>Seleccione sus deportes favoritos</legend>
+            <ul>
+                <li><input type="checkbox" name="sport1" value="football" />Futbol</li>
+                <li><input type="checkbox" name="sport2" value="gym" />Gimnasia</li>
+                <li><input type="checkbox" name="sport3" value="petanca" />Petanca</li>
+            </ul>
+        </fieldset>
+        <ul>
+            <li><input type="checkbox" name="information" value="yes" />¿Desea recibir información? SI/NO</li>
+        </ul>
+        <h5>Control RANGE</h5>
+        <p>
+            <input type="range" min="1" max="101" step="1" />
+        </p>
+        <h5>Controles RADIO</h5>
+        <ul>
+            <li><input type="radio" name="colors" value="red" checked />Rojo</li>
+            <li><input type="radio" name="colors" value="yellow" />Amarillo</li>
+        </ul>
+        <fieldset>
+            <legend>Mi formulario principal</legend>
+            <label for="name">Nombre:</label>
+            <input type="text" name="firstname" placeholder="Introduzca nombre" />
+        </fieldset>
+        <br />
+        <label for="email">Introduzca su mail</label>
+        <input type="email" name="email" accesskey="e" />
+        <br />
+        <label for="birthday" >Fecha de nacimiento</label>
+        <input type="date" name="birthday" accesskey="b" />
+        <br />
+        <input type="text" name="date" value="octubre de 2018" />
+        <input type="week" name="week" />
+        <br />
+        <label for="name2">Nmobre:</label>
+        <input type="text" placeholder="Introduzca nombre" name="name2" />
+        <input type="button" name="client" value="Enviar información CLIENTE" />
+        <input type="button" name="server" value="Enviar información SERVIDOR" />
+    </form>
+</body>
+</html>

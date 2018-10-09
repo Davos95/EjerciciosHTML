@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#botonBuscar").click(function () {
+                $.get("xml/alumnos.xml", function (data) {
+                    var notausuario = parseInt($("#cajaNota").val());
+                    $(data).find("alumno").each(function () {
+                        var notaAlumno = $(this).find("nota").first().text();
+                        notaAlumno = parseInt(notaAlumno);
+                        if (notaAlumno >= notausuario) {
+                            var nombre = $(this).find("nombre").first().text();
+                            var apellidos = $(this).find("apellidos").first().text();
+                            var nota = $(this).find("nota").first().text();
+                            var datos = nombre + " - " + apellidos + " - " + nota;
+                            var li = $("<li>", { text: datos });
+                            $("#listaAlumnos").append(li);
+                        }
+                    });
+                }
+                
+            )});
+
+            function cargarAlumnos() {
+                $.get("xml/alumnos.xml", function (data) {
+                    $(data).find("alumno").each(function () {
+                        var nombre = $(this).find("nombre").first().text();
+                        var apellidos = $(this).find("apellidos").first().text();
+                        var nota = $(this).find("nota").first().text();
+                        var datos = nombre + " - " + apellidos + " - " + nota;
+                        var li = $("<li>", { text: datos });
+                        $("#listaAlumnos").append(li);
+                    });
+                });
+            }
+        }); 
+
+    </script>
+</head>
+<body>
+    <label>Buscar una nota:</label>
+    <input type="text" id="cajaNota" />
+    <button type="button" id="botonBuscar">Buscar</button>
+<ul id="listaAlumnos"></ul>
+</body>
+</html>

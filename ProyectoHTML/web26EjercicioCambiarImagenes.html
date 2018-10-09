@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            cambiarImagenes();
+        }
+        function cambiarImagenes() {
+            for (var i = 0; i < document.images.length; i++) {
+                document.images[i].addEventListener("mouseover", function () {
+                    this.src = "images/imagenWindows.jpg";
+                });
+                document.images[i].addEventListener("mouseout", function () {
+                    this.src = "images/beagle.jpg";
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <figure>
+        <img src="images/beagle.jpg" alt="img1" style="width: 100px; height: 100px" />
+    </figure>
+    <figure>
+        <img src="images/beagle.jpg" alt="img2" style="width: 100px; height: 100px" />
+    </figure>
+    <figure>
+        <img src="images/beagle.jpg" alt="img3" style="width: 100px; height: 100px"  />
+    </figure>
+    <figure>
+        <img src="images/beagle.jpg" alt="img4" style="width: 100px; height: 100px" />
+    </figure>
+    <figure>
+        <img src="images/beagle.jpg" alt="img5" style="width: 100px; height: 100px" />
+    </figure>
+</body>
+</html>

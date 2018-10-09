@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /* Afecta a hijos directos y de forma secuencial, 
+            si se rompe la cadena de css con otra estructura 
+            de etiquetas se deja de dar el estilo */
+        p span {
+            background-color: yellow;
+        }
+        .letraroja {
+            color: red;
+        }
+        /* Restringe solamente a las p que tenga la clase letraroja
+            p.letraroja {
+            color: red;
+        }
+        */
+        /*Afecta los que tengan la clase letraroja dentro de los ul*/
+        ul .letraroja {
+            color: red;
+        }
+        /*Afecta tanto a los que sean ul como los que tengan la clase .letraroja
+            ul, .letraroja {
+            color: red;
+        }
+        */
+        #parrafo {
+            color: blue;
+        }
+        a[href$=".es"] {
+
+        }
+    </style>
+</head>
+<body>
+    <h1 class="letraroja">h1 ROJO</h1>
+    <p class="letraroja">p ROJO</p>
+    <span>Esto es un texto en span</span>
+    <p id="parrafo">
+        Parrafo...
+        <span>dentro de span y p directo 1</span> 
+        <span>otro span dentro directo 2</span>
+        <h3>Algo...<span>span en h3 y p</span></h3>
+        <a href="#">Enlace con <span>SPAN</span></a>
+    </p>
+    <ul>
+        <li class="letraroja">Elemento 1</li>
+        <li>Elemento 2</li>
+    </ul>
+    <hr />
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/jquery-3.3.1.intellisense.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            $("#botonDoble").click(function () {
+                var numero = $("#cajaNumero").val();
+                var operacion = parseInt(numero) * 2;
+                $("#resultado").text(operacion);
+            });
+
+            $("#botonCollatz").click(function () {
+                var numero = parseInt($("#cajaNumero").val());
+                var tabla = "<table style='border: 1px solid'>";
+
+                while (numero != 1) {
+                    tabla += "<tr>";
+                    if (numero % 2 == 0) {
+                        numero = numero / 2;
+                    } else {
+                        numero = numero * 3 + 1;
+                    }
+                    tabla += "<td>" + numero + "</td>";
+                    tabla += "</tr>";
+                }
+                tabla += "</tabla>";
+                $("#collatz").html(tabla);
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <label>Introduzca un número</label>
+        <input type="number" id="cajaNumero" />
+        <button type="button" id="botonDoble">Numero doble</button>
+        <button type="button" id="botonCollatz">Collatz</button>
+    </form>
+    <h1 id="resultado"></h1>
+    <div id="collatz"></div>
+</body>
+</html>

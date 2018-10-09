@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            document.getElementById("validar").addEventListener("click",collatz);
+        }
+        function collatz() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var resultado = document.getElementById("resultado");
+            if (!isNaN(numero) && numero > 1) {
+                resultado.innerText = numero;
+                while (numero != 1) {
+                    resultado.innerText += "\n";
+                    if ((numero % 2) == 0) {
+                        numero = numero / 2;
+                    } else {
+                        numero = numero * 3 + 1;
+                    }
+                    resultado.innerText += numero;
+                }
+            } else {
+                resultado.innerText = "Introduce de forma correcta el número";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Collatz</legend>
+            <label>Introduce un número: </label>
+            <input type="number" id="numero" />
+            <button type="button" id="validar">Validar</button>
+        </fieldset>
+        <h1 id="resultado"></h1>
+    </form>
+</body>
+</html>

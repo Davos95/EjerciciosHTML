@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <fieldset>
+        <legend>Generar imágenes</legend>
+        <form>
+            <label>Seleccione una imagen:</label>
+            <select id="listaImagenes">
+                <option value="images/Beagle.jpg">Beagle</option>
+                <option value="images/google.jpg">Google</option>
+                <option value="images/imagenWindows.jpg">Windows</option>
+            </select>
+            <br />
+            <label>Número de imágenes:</label>
+            <input type="number" id="numero" />
+            <br />
+            <label>Seleccione un rango</label>
+            <input type="range" id="rangoImagenes" min="1" max="50" step="3" value="1" />
+            <br />
+            <button type="button" id="validar">Generar imágenes</button>
+        </form>
+    </fieldset>
+    <hr />
+    <div id="campoGeneracion"></div>
+
+    <script type="text/javascript">
+        var imagen = document.getElementById("listaImagenes");
+        var boton = document.getElementById("validar");
+        var rangoImagenes = document.getElementById("rangoImagenes");
+        var campoGenerado = document.getElementById("campoGeneracion");
+
+        function cambiarImagenes() {
+            for (var i = 0; i < document.getElementsByTagName("img").length; i++) {
+                document.getElementsByTagName("img")[i].src = imagen.value;
+            }
+        }
+        function generarImagenes() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var cadenaImagenes = "";
+            for (var i = 0; i < numero; i++) {
+                cadenaImagenes += "<img src='" + imagen.value + "' style='width:100px; heigth:100px' />";
+            }
+            campoGenerado.innerHTML = cadenaImagenes;
+        }
+        function generarImagenesRango() {
+            var cadenaImagenes = "";
+            for (var i = 0; i < rangoImagenes.value; i++) {
+                cadenaImagenes += "<img src='" + imagen.value + "' style='width:100px; heigth:100px' />";
+            }
+            campoGenerado.innerHTML = cadenaImagenes;
+        }
+        //CREATE ELEMENT
+        function generarImagenesConCreateElement() {
+            eliminarImagenesDelCampo();
+            var numero = parseInt(document.getElementById("numero").value);
+            for (var i = 0; i < numero; i++) {
+                var nuevaImagen = document.createElement("img");
+                nuevaImagen.src = imagen.value;
+                nuevaImagen.style = "width:100px; heigth:100px";
+                campoGenerado.appendChild(nuevaImagen);
+            }
+        }
+        function eliminarImagenesDelCampo() {
+            while (campoGenerado.firstChild) {
+                campoGenerado.removeChild(campoGenerado.firstChild);
+            }
+        }
+        //Asigna Eventos
+        function asignarEventos() {
+            if (document.readyState == 'complete') {
+                imagen.addEventListener("change", cambiarImagenes);
+                boton.addEventListener("click", generarImagenesConCreateElement);
+                rangoImagenes.addEventListener("change", generarImagenesRango);
+            }
+        }
+        document.addEventListener('readystatechange', asignarEventos, false);
+    </script>
+
+</body>
+</html>

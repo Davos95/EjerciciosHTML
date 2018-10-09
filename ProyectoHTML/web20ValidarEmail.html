@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("validar").addEventListener("click", validarEmail);
+        }
+        function validarEmail() {
+            var resultado = document.getElementById("resultado");
+            var email = document.getElementById("email").value;
+            resultado.innerHTML = "<ul>";
+            if (email.charAt(0) != "@" && email.charAt(email.length - 1) != "@") {
+                if (email.indexOf("@") == email.lastIndexOf("@")) {
+                    if (email.lastIndexOf("@") < email.lastIndexOf(".")) {
+                        if ((email.substr(email.lastIndexOf(".")).length - 1) < 5 && (email.substr(email.lastIndexOf(".")).length - 1) > 1) {
+                            resultado.innerHTML += "<li>Email correcto</li>";
+                        } else {
+                            resultado.innerHTML += "<li>El dominio debe de tener entre 2 y 4 caracteres</li>";
+                        }
+                    } else {
+                        resultado.innerHTML += "<li>Debe de tener un .</li>";
+                    }
+                } else {
+                    resultado.innerHTML += "<li>Solamente debe de tener una @</li>";
+                }
+            } else {
+                resultado.innerHTML += "<li>No se puede escribir @ al principio ni al final</li>";
+            } 
+            resultado.innerHTML += "</ul>";
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Comprobar email</legend>
+        <form>
+            <label>Introduce un email:</label>
+            <input type="text" id="email" placeholder="introduce un email" />
+            <button type="button" id="validar" >Validar</button>
+        </form>
+    </fieldset>
+    <h1 id="resultado"></h1>
+</body>
+</html>

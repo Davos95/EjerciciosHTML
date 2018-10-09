@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    
+    <style>
+        div {
+            border: 2px solid blue;
+            border-radius: 50px 0 0 50px;
+            /*  OTRA FORMA
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            */
+            text-transform: capitalize;
+            text-align: center;
+            color: blue;
+            padding: 5px;
+            margin-left: 25%;
+            margin-right: 25%;
+            animation-name: revertido;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+        }
+        div:hover {
+                animation-name: bordes;
+                animation-duration: 1s;
+                animation-direction: alternate;
+                animation-fill-mode: forwards;
+            }
+        @keyframes bordes {
+            0% {
+                border-radius: 50px 0 0 50px;
+            }
+            100% {
+                border-radius: 50px;
+                border: 5px solid red;
+                color: red;
+            }
+        }
+        @keyframes revertido {
+            0% {
+                border-radius: 50px;
+                border: 5px solid red;
+                color: red;
+            }
+
+            100% {
+                border-radius: 50px 0 0 50px;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div>visual studio</div>
+    <input type="range" name="na" min="18" max="90" />
+</body>
+</html>

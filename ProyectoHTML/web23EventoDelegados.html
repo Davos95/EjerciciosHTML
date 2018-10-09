@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var contador = 0;
+        function enlazarEventos() {
+            //BUSCA EL BOTON PARA ENLAZAR SU EVENTO
+            var boton = document.getElementById("boton1");
+            //ENLAZAMOS EL BOTON CON ACTION SOBRE UNA FUNCION EXTERNA
+            //boton.onclick = mostrarMensaje;
+            //boton.onclick = mostrarMensaje2;
+
+            //boton.addEventListener("click", mostrarMensaje);
+            //boton.addEventListener("click", mostrarMensaje2);
+
+            boton.onclick = function () {
+                //AQUI SE ESCRIBEN LAS ACCIONES AL PULSAR BOTON
+                alert("boton pulsado anonima");
+            }
+            
+            //boton.addEventListener("click", function () {
+            //    alert("boton pulsado addEventListener y funcion anonima");
+            //});
+            boton.addEventListener("click", function () {
+                alert("objeto: "+this);
+            });
+            contador++;
+            var eventos = document.getElementById("eventos");
+            eventos.innerText = "Has enlazado " + contador + " vez/veces";
+        }
+        function mostrarMensaje() {
+            alert("He sido pulsado");
+        }
+        function mostrarMensaje2(objeto) {
+            alert("Elemento pulsado: " + objeto);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Eventos dinamicos JavaScript</h1>
+            <h1 id="eventos"></h1>
+        </hgroup>
+        
+    </header>
+    <form>
+        <button type="button" onclick="enlazarEventos()">Enlazar Eventos</button>
+        <button type="button" id="boton1">Pulsa para hacer algo...</button>
+        <button type="button" onclick="mostrarMensaje2(this)">Mostrar mensaje 2</button>
+    </form>
+</body>
+</html>

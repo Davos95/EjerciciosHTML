@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function() {
+            this.document.getElementById("mostrar").addEventListener("click", estacion);
+        }
+        function estacion() {
+            var valor = parseInt(document.getElementById("cajaEstacion").value);
+            var resultado = document.getElementById("estacion");
+            switch(valor) {
+                case 0: resultado.innerHTML = "Otoño"; resultado.style.color = "brown"; break;
+                case 1: resultado.innerHTML = "Invierno"; resultado.style.color = "grey"; break;
+                case 2: resultado.innerHTML = "Primavera"; resultado.style.color = "green"; break;
+                case 3: resultado.innerHTML = "Verano"; resultado.style.color = "orange"; break;
+                default: resultado.innerHTML = "Valor incorrecto, inserte del 0 al 3"; resultado.style.color = "black";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label>Introduce un número estación: </label>
+        <input type="number" min="0" max="3" id="cajaEstacion" placeholder="Estacion"  />
+        <button type="button" id="mostrar">Mostrar estación</button>
+    </form>
+    <h1 id="estacion"></h1>
+</body>
+</html>

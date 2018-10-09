@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#validarDNI").click(function () {
+                var dni = $("#cajaDNI").val();
+                var exp = new RegExp(/^[0-9]{8}[A-Z]{1}$/);
+                if (exp.test(dni)) {
+                    $("#resultadoDNI").text("Correcto");
+                } else {
+                    $("#resultadoDNI").text("Incorrecto");
+                }
+            });
+            $("#validarCP").click(function () {
+                var cp = $("#cajaCodigoPostal").val();
+                var exp = new RegExp(/^[0-9]{5}$/);
+                if (exp.test(cp)) {
+                    $("#resultadoCP").text("Correcto");
+                } else {
+                    $("#resultadoCP").text("Incorrecto");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>DNI</legend>
+        <form>
+            <label>DNI:</label>
+            <input type="text" id="cajaDNI" />
+            <button type="button" id="validarDNI">Validar</button>
+            <h4 id="resultadoDNI"></h4>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>CodigoPostal</legend>
+        <form>
+            <label>Codigo Postal:</label>
+            <input type="text" id="cajaCodigoPostal" />
+            <button type="button" id="validarCP">Validar</button>
+            <h4 id="resultadoCP"></h4>
+        </form>
+    </fieldset>
+</body>
+</html>

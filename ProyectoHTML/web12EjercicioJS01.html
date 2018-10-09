@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function operacion(op) {
+            var num1 = Number.parseInt(document.getElementById("num1").value);
+            var num2 = Number.parseInt(document.getElementById("num2").value);
+            var solucion = document.getElementById("solucion");
+            if (!isNaN(num1) && !isNaN(num2)) {
+                if (op == 'sumar') {
+                    solucion.innerText = (num1 + num2);
+                } else if (op == 'restar') {
+                    solucion.innerText = (num1 - num2);
+                } else if (op == 'multiplicar') {
+                    solucion.innerText = (num1 * num2);
+                } else if (op == 'dividir') {
+                    solucion.innerText = (num1 / num2);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Operaciones</legend>
+            <label>Primer Numero: </label>
+            <input type="number" id="num1" />
+            <br />
+            <label>Segundo Numero: </label>
+            <input type="number" id="num2" />
+            <br />
+            <h2 id="solucion"></h2>
+        </fieldset>
+        <button type="button" onclick="operacion('sumar')">Sumar</button>
+        <button type="button" onclick="operacion('restar')">Restar</button>
+        <button type="button" onclick="operacion('multiplicar')">Multiplicar</button>
+        <button type="button" onclick="operacion('dividir')">Dividir</button>
+    </form>
+    
+</body>
+</html>

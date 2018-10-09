@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            for (var i = 0; i < document.getElementsByTagName("button").length; i++) {
+                document.getElementsByTagName("button")[i].addEventListener("click", sumarBotones);
+            }
+        }
+        var total = 0;
+        function sumarBotones() {
+            var resultado = document.getElementById("resultado");
+            total += parseInt(this.innerText);
+            resultado.innerText = total;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sumar botones</h1>
+    </header>
+    <form>
+        <button type="button" id="boton1">66</button>
+        <button type="button" id="boton2">14</button>
+        <button type="button" id="boton3">21</button>
+    </form>
+    <h1 id="resultado"></h1>
+</body>
+</html>

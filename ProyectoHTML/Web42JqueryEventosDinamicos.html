@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="js/random.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn")
+                .click(function () {
+                    for (var i = 0; i < 5; i++) {
+                        var num = random(100);
+                        var btn = $("<button>");
+                        btn.text("Boton" + num);
+                        btn.val(num);
+                        btn.on("click", function () {
+                            alert($(this).val());
+                        });
+                        $("#capaBotones").append(btn);
+                    }
+                });
+            $("#btnEnlaces").click(function () {
+                
+                for (var i = 0; i < 5; i++) {
+                    var num = random(100);
+                    var a = $("<a>", {
+                        text: "enlace " + i + " (numero " + num + " )",
+                        "data-numero": num,
+                        href: "#"
+                    });
+                    var br = $("<br>");
+                    /*
+                    a.text("enlace " + i + " (numero "+ num + " )");
+                    a.val(num);
+                    a.attr("href", "#");*/
+                    a.on("click", function () {
+                        alert($(this).data("numero"));
+                    });
+                    
+                    $("#capaBotones").append(a);
+                    $("#capaBotones").append(br);
+                }
+                
+            });
+        });
+    </script>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">Crear botones</button>
+    <button type="button" id="btnEnlaces">Crear enlaces</button>
+    <div id="capaBotones"></div>
+    <div id="capaLinks"></div>
+</body>
+</html>

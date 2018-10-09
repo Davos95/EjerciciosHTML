@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/random.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var total = 0;
+            $("#iniciar").click(function () {
+                $("#contenedorCheckbox").html("");
+                $("#resultado").html("");
+                total = 0;
+                var long = random(20);
+                for (var i = 0; i < long; i++) {
+                    var num = random(100);
+                    var checkbox = $("<input>", {
+                        type: "checkbox",
+                        "data-numero": num
+                    });
+                    var l = $("<label>", {
+                        text: num
+                    });
+                    checkbox.click(function () {
+                        if ($(this).prop("checked")) {
+                            total += $(this).data("numero");
+                        } else {
+                            total -= $(this).data("numero");
+                        }
+                        $("#resultado").text(total);
+                    });
+                    $("#contenedorCheckbox").append(checkbox);
+                    $("#contenedorCheckbox").append(l);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="iniciar">Iniciar</button>
+    </form>
+    <div id="contenedorCheckbox">
+
+    </div>
+    <h2 id="resultado">
+
+    </h2>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#botonAccion").click(function () {
+                var colores = ["red", "blue", "orange", "brown", "yellow", "green", "pink", "grey", "purple"];
+                var numColores = colores.length;
+                $("p").each(function () {
+                    var colorAleatorio = Math.floor(Math.random() * ((numColores + 1) - 0)) + 0;
+                    var color = colores[colorAleatorio];
+                    $(this).text("contenido");
+                    $(this).css("background-color", color);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button type="button" id="botonAccion">Accion</button>
+    <p>parrafo 1</p>
+    <p>parrafo 2</p>
+    <p>parrafo 3</p>
+    <p>parrafo 4</p>
+    <p>parrafo 5</p>
+    <p>parrafo 6</p>
+    <p>parrafo 7</p>
+</body>
+</html>

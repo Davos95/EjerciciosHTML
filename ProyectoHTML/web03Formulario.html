@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Formulario</legend>
+            <label>Nombre:</label>
+            <input type="text" id="nameForm" name="name" />
+            <br />
+            <label>Email:</label>
+            <input type="email" id="emailForm" name="email" />
+            <br />
+            <label>Rango:</label>
+            <input type="range" min="1" max="201" value="5" step="50" />
+            <br />
+            <label>Cliente:</label>
+            <input type="button" id="verifyForm" name="verify" value="Enviar" />
+            <label>Servidor:</label>
+            <input type="submit" id="sendServer" name="send" />
+        </fieldset>
+        
+        <hr />
+        <h4>Submit con button</h4>
+        <button type="submit">Enviar datos</button>
+
+    </form>
+    <hr />
+    <h1>Tipos de input</h1>
+    <form>
+        <fieldset>
+            <legend>Datos</legend>
+            <label>Text:</label>
+            <input type="text" placeholder="Tu nombre" name="nombre" required autofocus />
+            <br />
+            <label>Email:</label>
+            <input type="email" placeholder="Correo electronico" name="email" required />
+            <br />
+            <label>Url:</label>
+            <input type="url" placeholder="Tu web" name="url" />
+            <br />
+            <label>Date:</label>
+            <input type="date" name="fecha" />
+            <br />
+            <label>Number:</label>
+            <input type="number" name="numero" min="10" max="20" value="10" />
+            <br />
+            <label>Range:</label>
+            <input type="range" min="1" max="201" value="25" step="25" />
+            <br />
+            <label>Radios:</label>
+            <input type="radio" name="colores" value="rojo" checked />Rojo
+            <input type="radio" name="colores" value="azul" />Azul
+            <br />
+            <label>Checkbox:</label>
+            <input type="checkbox" name="terminos" value="acepta" />Acepto terminos y uso de condiciones
+            <br />
+            <label>Select:</label>
+            <select>
+                <option value="uno">UNO</option>
+                <option value="dos">DOS</option>
+                <option value="tres">TRES</option>
+                <option value="cuatro">CUATRO</option>
+                <option value="cinco">CINCO</option>
+            </select>
+            <br />
+            <label>Select con size</label>
+            <select size="2">
+                <option value="uno">UNO</option>
+                <option value="dos">DOS</option>
+                <option value="tres">TRES</option>
+                <option value="cuatro">CUATRO</option>
+                <option value="cinco">CINCO</option>
+            </select>
+            <br />
+            <label>Multiple</label>
+            <select multiple>
+                <option value="uno">UNO</option>
+                <option value="dos">DOS</option>
+                <option value="tres">TRES</option>
+                <option value="cuatro">CUATRO</option>
+                <option value="cinco">CINCO</option>
+            </select>
+            <br />
+            <label>Accesskey, pulsar alt + n para probar</label>
+            <input type="text" name="nombre2" accesskey="n"/>
+            <br />
+            
+            <h4>Asociacion con el label</h4>
+            <label for="cajanombre" accesskey="m">Nombre:</label>
+            <input type="text" placeholder="Su nombre" id="cajanombre"/>
+            <br />
+            <label>Datalist</label>
+            <datalist id="valores">
+                <option value="valor 1" />
+                <option value="valor 2" />
+                <option value="valor 3" />
+                <option value="valor 4 "/>
+            </datalist>
+            <input type="text" list="valores" />
+            <br />
+            <input type="button" name="boton" value="Boton" />
+            <br />
+            <input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+</body>
+</html>

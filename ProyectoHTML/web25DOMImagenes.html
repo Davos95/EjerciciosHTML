@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("boton1").addEventListener("click", cambiarImagenes);
+        }
+        function cambiarImagenes() {
+            for (var i = 0; i < document.images.length; i++) {
+                document.images[i].src = "images/beagle.jpg";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <button type="button" id="boton1">Cambiar Imagenes</button>
+    </form>
+    <hr />
+    <figure>
+        <img src="images/beagle.jpg" style="width: 100px; height: 100px" />
+    </figure>
+    <figure>
+        <img src="images/imagenWindows.jpg" style="width: 100px; height: 100px" />
+    </figure>
+    <figure>
+        <img src="images/google.jpg"  style="width: 100px; height: 100px" />
+    </figure>
+</body>
+</html>
